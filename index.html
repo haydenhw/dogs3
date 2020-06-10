@@ -14,8 +14,9 @@
     <h1>Dogs!</h1>
     <form id="js-dogs-form">
       <label class="num-dogs-input" for="num-dogs">How many random dogs do you want to see?</label>
-      <input type="text" value="3" class="js-num-dog-input" name="num-dogs" id="num-dogs">
-      <button type="submit">Fetch!</button>
+      <input type="range" min="1" max="50" value="3" class="slider" id="slider">
+      <p><span id="slider_value">3</span></p>
+      <button type="submit">Fetch !</button>
     </form>
   </div>
 
