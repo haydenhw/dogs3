@@ -4,25 +4,23 @@ const fetchRandDogByBreed = (breedName) => axios(`${BASE_URL}/${breedName}/image
 const renderImg = (imgUrl) => $(`<img src=${imgUrl} class="dog-image">`);
 
 $(async () => {
-  $(document).on('input', '#slider', function () {
-    $('#slider_value').html($(this).val());
-  });
-
   $('.js-dog-form').submit(async function (event) {
     event.preventDefault();
-    const breedName = $('.js-select-input').val();
+
+    let breedName = $('.js-breed-input').val();
+    breedName = breedName.trim().toLowerCase();
     try {
       const {data} = await fetchRandDogByBreed(breedName);
       const dogImg = renderImg(data.message);
       $('.js-dog-img-container').html(dogImg)
+      $('.js-hide').removeClass('hidden')
     } catch(err) {
-      $('.js-dog-img-container').html('Sorry, we couldn\'t find any dogs of breed ' + breedName);
+      if (err.response.status === 404) {
+        $('.js-error').html('Sorry, we couldn\'t find any dogs of breed ' + breedName);
+      }
     }
   });
 });
-
-
-
 
 
 

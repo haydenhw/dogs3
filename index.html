@@ -14,15 +14,14 @@
     <h1>Dog by breed</h1>
     <form class="js-dog-form">
       <label class="dog-breed" for="dog-breed">Select a dog breed:</label>
-      <select name="dog-breed" class="js-select-input" id="dog-breed">
-        <option value="Unicorn">Unicorn</option>
-        <option value="akita">Akita</option>
-        <option value="chow">Chow</option>
-        <option value="dingo">Dingo</option>
-      </select>
+      <input type="text" class="js-breed-input" id="dog-breed" value="Husky">
       <button type="submit">Fetch !</button>
     </form>
-      <div class="js-dog-img-container"></div>
+      <div class="hidden js-hide">
+        <h2>Look at this dog!</h2>
+        <div class="js-dog-img-container"></div>
+      </div>
+    <div class="js-error"></div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
