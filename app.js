@@ -12,11 +12,13 @@ $(async () => {
     try {
       const {data} = await fetchRandDogByBreed(breedName);
       const dogImg = renderImg(data.message);
-      $('.js-dog-img-container').html(dogImg)
-      $('.js-hide').removeClass('hidden')
+      $('.js-dog-img-container').html(dogImg);
+      $('.js-hide').removeClass('hidden');
+      $('.js-error').addClass('hidden');
     } catch(err) {
       if (err.response.status === 404) {
-        $('.js-error').html('Sorry, we couldn\'t find any dogs of breed ' + breedName);
+        $('.js-error').html('Sorry, we couldn\'t find any dogs of breed ' + breedName).removeClass('hidden');
+        $('.js-hide').addClass('hidden');
       }
     }
   });
